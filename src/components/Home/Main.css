@@ -1,0 +1,79 @@
+.main-wrapper {
+  position: relative;
+  background-color: rgb(156, 233, 251);
+}
+
+.hero-text {
+  padding: 5rem 5rem;
+  background: #f0f8ff;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-text span {
+  color: #16241a;
+}
+
+.bubble-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bubble {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(40, 167, 69, 0.2);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1000px);
+  }
+}
+
+.user-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section {
+  padding-top: 4rem; /* You can increase this value if needed */
+  padding-bottom: 2rem;
+  background-color: #ffffff;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.brand-name {
+  color: #28a745;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
