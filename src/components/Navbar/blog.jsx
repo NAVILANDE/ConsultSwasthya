@@ -1,66 +1,41 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./blog.css"; // Custom styles for additional styling
+import React, { useState, useEffect } from "react";
 
-const BlogSection = () => {
-  // Dummy blog data
-  const blogs = [
-    {
-      id: 1,
-      title: "Make ADHD Your Superpower",
-      description:
-        "This article aims to teach you how to utilize a practical framework to advocate for the support you need from coaches and other support providers.",
-      category: "Uncategorized",
-      image: "https://source.unsplash.com/400x250/?lego,toys",
-      authorImage: "https://randomuser.me/api/portraits/men/32.jpg",
-      date: "January 30, 2022",
-    },
-    {
-      id: 2,
-      title: "Women and Low Sex Drive: Why it Happens and What You Should Know",
-      description:
-        "Do you know those happy couples on Instagram who seem like they have it all together? They have one thing in common: little to no sexual...",
-      category: "Psychology",
-      image: "https://source.unsplash.com/400x250/?woman,bed",
-      authorImage: "https://randomuser.me/api/portraits/women/44.jpg",
-      date: "December 10, 2021",
-    },
-    {
-      id: 3,
-      title: "Establishing Healthy Friendships (And Knowing When to Move On)",
-      description:
-        "Unfortunately, we often do not learn enough about what makes a relationship healthy. Even if we do, the lesson does not always stick when it comes...",
-      category: "Psychology",
-      image: "https://source.unsplash.com/400x250/?friends,happy",
-      authorImage: "https://randomuser.me/api/portraits/women/50.jpg",
-      date: "December 10, 2021",
-    },
-  ];
+const Blog = () => {
+  const [articles, setArticles] = useState([]);
+  const apiKey = "6426d5420fc0f43ba07c40b5474145c5"; // Replace with your Mediastack API key
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      const response = await fetch(
+        `http://api.mediastack.com/v1/news?access_key=${apiKey}&categories=general&languages=en`
+      );
+      const data = await response.json();
+      setArticles(data.data);
+    };
+
+    fetchArticles();
+  }, []);
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">
-        Find compelling articles worth{" "}
-        <span className="text-primary">reading</span>
-      </h1>
-
-      <div className="row">
-        {blogs.map((blog) => (
-          <div className="col-md-4" key={blog.id}>
-            <div className="card blog-card">
-              <img src={blog.image} className="card-img-top" alt={blog.title} />
-              <div className="card-body">
-                <span className="badge bg-success">{blog.category}</span>
-                <div className="author-avatar">
-                  <img src={blog.authorImage} alt="Author" />
-                </div>
-                <h5 className="card-title">{blog.title}</h5>
-                <p className="card-text">{blog.description}</p>
-              </div>
-              <div className="card-footer text-muted text-center">
-                {blog.date}
-              </div>
-            </div>
+    <div className="p-5">
+      <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {articles.map((article) => (
+          <div key={article.url} className="border p-4 rounded-md shadow-lg">
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-40 object-cover rounded-md mb-4"
+            />
+            <h2 className="text-xl font-semibold">{article.title}</h2>
+            <p className="text-sm text-gray-600">{article.description}</p>
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline mt-2 block"
+            >
+              Read more
+            </a>
           </div>
         ))}
       </div>
@@ -68,4 +43,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default Blog;

@@ -6,9 +6,11 @@ import Navbar from "./components/Navbar/Navbar";
 import Survey1 from "./components/survey_form/survey_1";
 import Survey2 from "./components/survey_form/survey_2";
 import Survey3 from "./components/survey_form/survey_3";
-import Blog from "./components/Navbar/blog";
+import Blog from "./components/Navbar/Blog";
 import FAQ from "./components/Navbar/Faq";
 import ContactUs from "./components/Navbar/ContactUs";
+import MainPage from "./components/Service_page/MainPage";
+import Table from "./components/Service_page/Table";
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
         <Route path="/survey/normal_user" element={<Survey1 />} />
         <Route path="/survey/student" element={<Survey2 />} />
         <Route path="/survey/professional" element={<Survey3 />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/expertblog" element={<Blog />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/services" element={<MainPage />} />
+        <Route path="/table" element={<Table />} />
       </Routes>
     </Router>
   );
