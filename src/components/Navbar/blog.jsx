@@ -1,40 +1,45 @@
 import React, { useState, useEffect } from "react";
+import "./Blog.css";
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
-  const apiKey = "6426d5420fc0f43ba07c40b5474145c5"; // Replace with your Mediastack API key
+  const apiKey = "6426d5420fc0f43ba07c40b5474145c5"; // Your Mediastack API key
 
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await fetch(
-        `http://api.mediastack.com/v1/news?access_key=${apiKey}&categories=general&languages=en`
+        `http://api.mediastack.com/v1/news?access_key=${apiKey}&categories=health&languages=en&limit=12`
       );
       const data = await response.json();
-      setArticles(data.data);
+      setArticles(data.data || []);
     };
 
     fetchArticles();
   }, []);
 
   return (
-    <div className="p-5">
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="blog-container">
+      <h1 className="blog-heading">Latest Health Blogs</h1>
+      <div className="blog-grid">
         {articles.map((article) => (
-          <div key={article.url} className="border p-4 rounded-md shadow-lg">
+          <div key={article.url} className="blog-card">
             <img
-              src={article.image}
+              src={
+                article.image ||
+                "https://via.placeholder.com/300x180?text=No+Image"
+              }
               alt={article.title}
-              className="w-full h-40 object-cover rounded-md mb-4"
+              className="blog-image"
             />
-            <h2 className="text-xl font-semibold">{article.title}</h2>
-            <p className="text-sm text-gray-600">{article.description}</p>
+            <h2 className="blog-title">{article.title}</h2>
+            <p className="blog-description">{article.description}</p>
             <a
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline mt-2 block"
+              className="blog-link"
             >
-              Read more
+              Read more →
             </a>
           </div>
         ))}

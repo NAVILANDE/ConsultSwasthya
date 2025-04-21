@@ -11,6 +11,8 @@ import FAQ from "./components/Navbar/Faq";
 import ContactUs from "./components/Navbar/ContactUs";
 import MainPage from "./components/Service_page/MainPage";
 import Table from "./components/Service_page/Table";
+import Dashboard from "./components/Dashboard/Dashboard";
+import EducateYourselfPage from "./components/Navbar/EducateYourselfPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/services" element={<MainPage />} />
         <Route path="/table" element={<Table />} />
+        <Route path="/survey/normal_user/dashboard_1" element={<Dashboard />} />
+        <Route path="/educateyourself" element={<EducateYourselfPage />} />
       </Routes>
     </Router>
   );

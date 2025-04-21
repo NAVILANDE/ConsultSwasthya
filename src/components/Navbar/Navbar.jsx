@@ -37,8 +37,8 @@ const NavigationBar = () => {
             <Nav.Link as={Link} to="/services">
               Services
             </Nav.Link>
-            <Nav.Link as={Link} to="/expert">
-              Expert
+            <Nav.Link as={Link} to="/educateyourself">
+              Educate YourSelf
             </Nav.Link>
             <Nav.Link as={Link} to="/medicallab">
               Medical Lab

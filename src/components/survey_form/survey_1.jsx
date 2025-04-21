@@ -1,143 +1,200 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./survey.css"; // 👈 Import here
+import "./survey.css";
 
-const Survey1 = () => {
+const Survey1 = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
-    q1: "",
-    q2: "",
-    q3: "",
-    q4: "",
-    q5: "",
+    age: "",
+    gender: "",
+    family_history: "",
+    work_interfere: "",
+    benefits: "",
+    care_options: "",
+    anonymity: "",
+    leave: "",
+    mental_health_consequence: "",
+    coworkers: "",
+    supervisor: "",
   });
-  const [result, setResult] = useState(null);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/predict",
-        formData
-      );
-      setResult(response.data.depression);
-    } catch (error) {
-      console.error("Error submitting survey", error);
-    }
+    onSubmit(formData);
   };
 
   return (
     <div className="survey-container">
-      <h2 className="survey-title">Depression Survey for Normal Users</h2>
+      <h2>Mental Health Survey</h2>
+      <form className="survey-form" onSubmit={handleSubmit}>
+        <label>
+          Age:
+          <input
+            type="number"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            required
+          />
+        </label>
 
-      <form onSubmit={handleSubmit}>
-        <div className="question-block">
-          <p className="question-text">1. How often do you feel sad or down?</p>
-          {["Never", "Rarely", "Sometimes", "Often"].map((option, idx) => (
-            <label key={idx} className="option">
-              <input
-                type="radio"
-                name="q1"
-                value={option}
-                onChange={handleChange}
-                required
-              />
-              {option}
-            </label>
-          ))}
-        </div>
+        <label>
+          Gender:
+          <select
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label>
 
-        <div className="question-block">
-          <p className="question-text">
-            2. How many hours of sleep do you get daily?
-          </p>
-          {["Less than 4", "4-6 hours", "6-8 hours", "More than 8"].map(
-            (option, idx) => (
-              <label key={idx} className="option">
-                <input
-                  type="radio"
-                  name="q2"
-                  value={option}
-                  onChange={handleChange}
-                  required
-                />
-                {option}
-              </label>
-            )
-          )}
-        </div>
+        <label>
+          Family History:
+          <select
+            name="family_history"
+            value={formData.family_history}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
 
-        <div className="question-block">
-          <p className="question-text">
-            3. How stressed do you feel on an average day?
-          </p>
-          {["Not at all", "Mildly", "Moderately", "Very stressed"].map(
-            (option, idx) => (
-              <label key={idx} className="option">
-                <input
-                  type="radio"
-                  name="q3"
-                  value={option}
-                  onChange={handleChange}
-                  required
-                />
-                {option}
-              </label>
-            )
-          )}
-        </div>
+        <label>
+          Work Interference:
+          <select
+            name="work_interfere"
+            value={formData.work_interfere}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Never</option>
+            <option>Rarely</option>
+            <option>Sometimes</option>
+            <option>Often</option>
+          </select>
+        </label>
 
-        <div className="question-block">
-          <p className="question-text">
-            4. How frequently do you socialize with others?
-          </p>
-          {["Daily", "Few times a week", "Occasionally", "Rarely/Never"].map(
-            (option, idx) => (
-              <label key={idx} className="option">
-                <input
-                  type="radio"
-                  name="q4"
-                  value={option}
-                  onChange={handleChange}
-                  required
-                />
-                {option}
-              </label>
-            )
-          )}
-        </div>
+        <label>
+          Benefits:
+          <select
+            name="benefits"
+            value={formData.benefits}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Don't know</option>
+          </select>
+        </label>
 
-        <div className="question-block">
-          <p className="question-text">
-            5. What is your current mood most of the time?
-          </p>
-          {["Happy", "Neutral", "Sad", "Irritated"].map((option, idx) => (
-            <label key={idx} className="option">
-              <input
-                type="radio"
-                name="q5"
-                value={option}
-                onChange={handleChange}
-                required
-              />
-              {option}
-            </label>
-          ))}
-        </div>
+        <label>
+          Care Options:
+          <select
+            name="care_options"
+            value={formData.care_options}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Not sure</option>
+          </select>
+        </label>
 
-        <button type="submit" className="submit-btn">
-          Submit Survey
-        </button>
+        <label>
+          Anonymity:
+          <select
+            name="anonymity"
+            value={formData.anonymity}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Don't know</option>
+          </select>
+        </label>
+
+        <label>
+          Medical Leave Difficulty:
+          <select
+            name="leave"
+            value={formData.leave}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Very difficult</option>
+            <option>Somewhat difficult</option>
+            <option>Don't know</option>
+            <option>Somewhat easy</option>
+            <option>Very easy</option>
+          </select>
+        </label>
+
+        <label>
+          Mental Health Consequences:
+          <select
+            name="mental_health_consequence"
+            value={formData.mental_health_consequence}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+          </select>
+        </label>
+
+        <label>
+          Comfort with Coworkers:
+          <select
+            name="coworkers"
+            value={formData.coworkers}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Some of them</option>
+          </select>
+        </label>
+
+        <label>
+          Comfort with Supervisor:
+          <select
+            name="supervisor"
+            value={formData.supervisor}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Some of them</option>
+          </select>
+        </label>
+
+        <button type="submit">Submit</button>
       </form>
-
-      {result && (
-        <div className="result-message">
-          Predicted Depression Status: {result}
-        </div>
-      )}
     </div>
   );
 };
