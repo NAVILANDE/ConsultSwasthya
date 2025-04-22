@@ -13,7 +13,7 @@ import MainPage from "./components/Service_page/MainPage";
 import Table from "./components/Service_page/Table";
 import Dashboard from "./components/Dashboard/Dashboard";
 import EducateYourselfPage from "./components/Navbar/EducateYourselfPage";
-
+import ExpertTeam from "./components/Navbar/expert";
 function App() {
   return (
     <Router>
@@ -30,6 +30,7 @@ function App() {
         <Route path="/table" element={<Table />} />
         <Route path="/survey/normal_user/dashboard_1" element={<Dashboard />} />
         <Route path="/educateyourself" element={<EducateYourselfPage />} />
+        <Route path="/expert" element={<ExpertTeam />} />
       </Routes>
     </Router>
   );

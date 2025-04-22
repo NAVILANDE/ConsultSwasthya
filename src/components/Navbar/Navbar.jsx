@@ -34,6 +34,9 @@ const NavigationBar = () => {
         {/* Nav Items */}
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
             <Nav.Link as={Link} to="/services">
               Services
             </Nav.Link>
@@ -45,6 +48,9 @@ const NavigationBar = () => {
             </Nav.Link>
             <Nav.Link as={Link} to="/expertblog">
               Expert Blog
+            </Nav.Link>
+            <Nav.Link as={Link} to="/expert">
+              Expert
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
