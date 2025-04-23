@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import "./ContactSection.css";
 
@@ -5,11 +7,7 @@ const ContactSection = () => {
   return (
     <section className="contact-section">
       <div className="contact-container">
-        {/* Left - Image */}
-        <div className="contact-image">
-          <img src="/images/contact.png" alt="Mental Health Awareness" />
-        </div>
-
+        
         {/* Right - Form */}
         <div className="contact-form">
           <h2>Get in Touch with Us</h2>
@@ -23,7 +21,7 @@ const ContactSection = () => {
               <input type="tel" placeholder="Phone Number" required />
               <input type="text" placeholder="Company Name (Optional)" />
             </div>
-            <textarea placeholder="Your Message" rows="4"></textarea>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
             <button type="submit">Send Message</button>
           </form>
         </div>

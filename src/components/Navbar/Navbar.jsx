@@ -32,24 +32,24 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         {/* Nav Items */}
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end nav">
           <Nav>
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/" className="nav-link">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/services">
-              Services
+            <Nav.Link as={Link} to="/main"  className="nav-link">
+              Survey
             </Nav.Link>
-            <Nav.Link as={Link} to="/educateyourself">
+            <Nav.Link as={Link} to="/educateyourself"  className="nav-link">
               Educate YourSelf
             </Nav.Link>
-            <Nav.Link as={Link} to="/medicallab">
+            <Nav.Link as={Link} to="/medicallab"  className="nav-link">
               Medical Lab
             </Nav.Link>
-            <Nav.Link as={Link} to="/expertblog">
+            <Nav.Link as={Link} to="/expertblog"  className="nav-link">
               Expert Blog
             </Nav.Link>
-            <Nav.Link as={Link} to="/expert">
+            <Nav.Link as={Link} to="/expert"  className="nav-link">
               Expert
             </Nav.Link>
           </Nav>

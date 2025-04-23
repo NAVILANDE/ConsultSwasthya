@@ -34,11 +34,10 @@ const Footer = () => {
               alt="Mindra Logo"
               className="logo"
             />
-            {/* <p>
+             <p>
             At Serenity Space, we are dedicated to supporting your mental health
-            journey. Our team of compassionate professionals is here to provide
-            the care, guidance
-          </p> */}
+            journey.
+          </p>
           </div>
 
           <div className="footer-section">
@@ -70,8 +69,8 @@ const Footer = () => {
               <li>⏰ Monday - Friday: 9 AM - 6 PM</li>
             </ul>
           </div>
+          
         </div>
-
         <div className="footer-bottom">
           <div className="bottom-left">
             <a href="#">Privacy Policy</a> •<a href="#">Terms & Conditions</a>
@@ -91,7 +90,9 @@ const Footer = () => {
               <i className="bi bi-linkedin"></i>
             </a>
           </div>
+          
         </div>
+       
 
         <div className="copyright">© 2024 Mindra. All rights reserved.</div>
       </footer>

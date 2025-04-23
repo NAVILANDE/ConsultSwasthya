@@ -70,28 +70,26 @@ const Cards = () => {
                         <h3 className="card-title mb-0 text-primary fw-bold">
                           {card.title}
                         </h3>
-                        <span className="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
-                          Product Designer
-                        </span>
+                        
                       </div>
                       <p className="card-text text-muted mb-4">
                         {card.description}
                       </p>
                       <div className="d-flex gap-3 mb-4">
-                        <button className="btn btn-primary px-4 rounded-pill">
-                          <i className="fas fa-envelope me-2"></i>Contact
-                        </button>
-                        <button
-                          className="btn btn-outline-primary px-4 rounded-pill"
-                          onClick={() => {
-                            if (card.title === "Analysis") {
-                              navigate("/table");
-                            } else if (card.title === "Stress reliving games") {
-                              window.location.href =
-                                "https://www.crazygames.com";
-                            }
-                          }}
-                        >
+                      <button
+      className="btn btn-outline-primary px-4 rounded-pill"
+      onClick={() => {
+        if (card.title === "Analysis") {
+          navigate("/table");
+        } else if (card.title === "Stress reliving games") {
+          window.location.href = "https://www.crazygames.com";
+        } else if (card.title === "Motivational Videos") {
+          navigate("/c1"); // Now handled by navigate
+        }else if (card.title === "Motivational Blogs") {
+          navigate("/c1/expertblog"); // Now handled by navigate
+        }
+      }}
+    >
                           <i className="fas fa-user-plus me-2"></i>Follow
                         </button>
                       </div>
