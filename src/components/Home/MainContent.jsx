@@ -57,7 +57,7 @@ const Main = () => {
                 <h3>{user.title}</h3>
                 <p>{user.desc}</p>
                 <button
-                  className="btn btn-success"
+                  className="btn"
                   onClick={() => navigate(user.route)}
                 >
                   Start Survey

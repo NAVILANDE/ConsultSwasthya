@@ -14,6 +14,9 @@ import Table from "./components/Service_page/Table";
 import Dashboard from "./components/Dashboard/Dashboard";
 import EducateYourselfPage from "./components/Navbar/EducateYourselfPage";
 import ExpertTeam from "./components/Navbar/expert";
+import MainContent from "./components/Home/MainContent";
+import MotivationalCards from "./components/Cards/MotivationalCards";
+import GameCards from "./components/Cards/GameCards";
 function App() {
   return (
     <Router>
@@ -31,6 +34,9 @@ function App() {
         <Route path="/survey/normal_user/dashboard_1" element={<Dashboard />} />
         <Route path="/educateyourself" element={<EducateYourselfPage />} />
         <Route path="/expert" element={<ExpertTeam />} />
+        <Route path="/main" element={<MainContent />} />
+        <Route path="/c1" element={<MotivationalCards />} />
+        <Route path="/c2" element={<GameCards />} />
       </Routes>
     </Router>
   );
